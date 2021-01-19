@@ -1,16 +1,19 @@
+sudo: false
+
 language: node_js
 node_js:
-  - "10.13"
-dist: trusty
-sudo: required
-branches:
-  only:
-    - main
-before_script:
-  - npm install -g @angular/cli
+  - "10"
+
+cache:
+  directories:
+    - ./node_modules
+
+install:
+  - npm install
+
 script:
-  - npm run test-headless
-  - ng build --prod --base-href https://sherrensoesanto.github.io/friends-mgmt-app/
+  - npm run-script build
+
 deploy:
   provider: pages
   skip_cleanup: true
