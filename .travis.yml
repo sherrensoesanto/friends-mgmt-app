@@ -20,4 +20,4 @@ deploy:
   github_token: $GITHUB_TOKEN
   local_dir: dist/friends-mgmt-app
   on:
-    branch: master
+    branch: main
