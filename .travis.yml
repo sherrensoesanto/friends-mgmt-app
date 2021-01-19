@@ -1,15 +1,13 @@
 language: node_js
 node_js:
-  - "stable"
-cache:
-  directories:
-    - node_modules
+  - "9"
+dist: trusty
+sudo: required
+branches:
+  only:
+    - master
+before_script:
+  - npm install -g @angular/cli
 script:
-  - npm run build
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $github_token
-  local_dir: build
-  on:
-    branch: main
+  - ng lint
+  - ng build --prod --base-href https://sherrensoesanto.github.io/friends-mgmt-app/
